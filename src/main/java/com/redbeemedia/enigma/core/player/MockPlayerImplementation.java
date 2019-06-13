@@ -64,4 +64,9 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     public ITimelinePosition getCurrentEndBound() {
         return timelinePositionFactory.newPosition(10000L);
     }
+
+    @Override
+    public IPlaybackTechnologyIdentifier getTechnologyIdentifier() {
+        return new MockPlaybackTechnologyIdentifier();
+    }
 }

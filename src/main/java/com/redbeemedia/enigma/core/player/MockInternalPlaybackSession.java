@@ -2,6 +2,8 @@ package com.redbeemedia.enigma.core.player;
 
 import android.os.Handler;
 
+import com.redbeemedia.enigma.core.playable.IPlayable;
+import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
 
 import org.json.JSONException;
@@ -9,6 +11,7 @@ import org.json.JSONObject;
 
 public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private StreamInfo streamInfo;
+    private IPlayable playable = new MockPlayable("mockAsset");
 
     public MockInternalPlaybackSession(boolean live) {
         this(live, -1L);
@@ -36,6 +39,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public StreamInfo getStreamInfo() {
         return streamInfo;
+    }
+
+    @Override
+    public IPlayable getPlayable() {
+        return playable;
     }
 
     @Override

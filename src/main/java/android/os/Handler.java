@@ -7,4 +7,8 @@ public class Handler {
     public boolean postDelayed(Runnable runnable, long delay) {
         return true;
     }
+
+    public boolean post(Runnable runnable) {
+        return true;
+    }
 }
