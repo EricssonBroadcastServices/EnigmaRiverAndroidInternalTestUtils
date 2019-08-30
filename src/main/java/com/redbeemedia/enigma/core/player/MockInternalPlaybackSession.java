@@ -12,6 +12,7 @@ import org.json.JSONObject;
 public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private StreamInfo streamInfo;
     private IPlayable playable = new MockPlayable("mockAsset");
+    private IStreamPrograms streamPrograms = null;
 
     public MockInternalPlaybackSession(boolean live) {
         this(live, -1L);
@@ -21,6 +22,7 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("live", live);
+            jsonObject.put("static", !live);
             jsonObject.put("start", start);
             this.streamInfo = new StreamInfo(jsonObject);
         } catch (JSONException e) {
@@ -39,6 +41,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public StreamInfo getStreamInfo() {
         return streamInfo;
+    }
+
+    @Override
+    public IStreamPrograms getStreamPrograms() {
+        return streamPrograms;
+    }
+
+    public MockInternalPlaybackSession setStreamPrograms(IStreamPrograms streamPrograms) {
+        this.streamPrograms = streamPrograms;
+        return this;
     }
 
     @Override
