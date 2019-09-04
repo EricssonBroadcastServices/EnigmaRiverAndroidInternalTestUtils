@@ -1,6 +1,7 @@
 package com.redbeemedia.enigma.core.player;
 
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
+import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
@@ -43,6 +44,11 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public void setVolume(float volume, IPlayerImplementationControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
+
+    @Override
+    public void setSubtitleTrack(ISubtitleTrack track, IPlayerImplementationControlResultHandler resultHandler) {
         resultHandler.onDone();
     }
 

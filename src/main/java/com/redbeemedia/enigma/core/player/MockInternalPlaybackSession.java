@@ -5,9 +5,14 @@ import android.os.Handler;
 import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
+import com.redbeemedia.enigma.core.player.track.IPlayerImplementationTrack;
+import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Collection;
+import java.util.List;
 
 public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private StreamInfo streamInfo;
@@ -67,6 +72,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setTracks(Collection<? extends IPlayerImplementationTrack> tracks) {
+
+    }
+
+    @Override
+    public void setSelectedSubtitleTrack(ISubtitleTrack track) {
+
+    }
+
+    @Override
     public void addListener(IPlaybackSessionListener listener) {
     }
 
@@ -86,6 +101,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public boolean isSeekAllowed() {
         return true;
+    }
+
+    @Override
+    public List<ISubtitleTrack> getSubtitleTracks() {
+        return null;
+    }
+
+    @Override
+    public ISubtitleTrack getSelectedSubtitleTrack() {
+        return null;
     }
 
     @Override

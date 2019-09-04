@@ -2,6 +2,7 @@ package com.redbeemedia.enigma.core.player;
 
 import com.redbeemedia.enigma.core.player.controls.AbstractEnigmaPlayerControls;
 import com.redbeemedia.enigma.core.player.controls.IControlResultHandler;
+import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     private EnigmaPlayerState state = EnigmaPlayerState.IDLE;
@@ -35,6 +36,11 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     }
 
     @Override
+    public void setSubtitleTrack(ISubtitleTrack track, IControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
+
+    @Override
     public void seekTo(long millis, IControlResultHandler resultHandler) {
         resultHandler.onDone();
     }
@@ -43,4 +49,6 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     public void seekTo(StreamPosition streamPosition, IControlResultHandler resultHandler) {
         resultHandler.onDone();
     }
+
+
 }
