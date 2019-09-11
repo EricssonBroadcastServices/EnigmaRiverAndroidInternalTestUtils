@@ -2,6 +2,7 @@ package com.redbeemedia.enigma.core.player;
 
 import android.os.Handler;
 
+import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
@@ -73,12 +74,14 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
 
     @Override
     public void setTracks(Collection<? extends IPlayerImplementationTrack> tracks) {
-
     }
 
     @Override
     public void setSelectedSubtitleTrack(ISubtitleTrack track) {
+    }
 
+    @Override
+    public void setSelectedAudioTrack(IAudioTrack track) {
     }
 
     @Override
@@ -110,6 +113,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
 
     @Override
     public ISubtitleTrack getSelectedSubtitleTrack() {
+        return null;
+    }
+
+    @Override
+    public List<IAudioTrack> getAudioTracks() {
+        return null;
+    }
+
+    @Override
+    public IAudioTrack getSelectedAudioTrack() {
         return null;
     }
 

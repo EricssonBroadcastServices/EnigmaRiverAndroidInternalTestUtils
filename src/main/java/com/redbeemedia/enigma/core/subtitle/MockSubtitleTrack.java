@@ -1,8 +1,8 @@
 package com.redbeemedia.enigma.core.subtitle;
 
-import com.redbeemedia.enigma.core.player.track.IPlayerImplementationTrack;
+import com.redbeemedia.enigma.core.player.track.BasePlayerImplementationTrack;
 
-public class MockSubtitleTrack implements IPlayerImplementationTrack {
+public class MockSubtitleTrack extends BasePlayerImplementationTrack {
     private String language;
     private final ISubtitleTrack subtitleTrack = new ISubtitleTrack() {
         @Override
