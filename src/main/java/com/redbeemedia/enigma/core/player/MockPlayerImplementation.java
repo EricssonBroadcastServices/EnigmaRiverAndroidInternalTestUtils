@@ -17,7 +17,7 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     }
 
     @Override
-    public void load(String url, IPlayerImplementationControlResultHandler resultHandler) {
+    public void load(ILoadRequest loadRequest, IPlayerImplementationControlResultHandler resultHandler) {
         resultHandler.onDone();
         playerImplementationListener.onLoadCompleted();
     }

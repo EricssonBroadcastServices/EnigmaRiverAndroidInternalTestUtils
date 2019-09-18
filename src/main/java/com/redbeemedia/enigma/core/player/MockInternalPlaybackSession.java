@@ -7,6 +7,8 @@ import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
 import com.redbeemedia.enigma.core.player.track.IPlayerImplementationTrack;
+import com.redbeemedia.enigma.core.restriction.IContractRestrictions;
+import com.redbeemedia.enigma.core.restriction.MockContractRestrictions;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 import org.json.JSONException;
@@ -19,6 +21,7 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private StreamInfo streamInfo;
     private IPlayable playable = new MockPlayable("mockAsset");
     private IStreamPrograms streamPrograms = null;
+    private IContractRestrictions contractRestrictions = new MockContractRestrictions();
 
     public MockInternalPlaybackSession(boolean live) {
         this(live, -1L);
@@ -129,5 +132,15 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public boolean isSeekToLiveAllowed() {
         return true;
+    }
+
+    @Override
+    public IContractRestrictions getContractRestrictions() {
+        return contractRestrictions;
+    }
+
+    @Override
+    public void setContractRestrictions(IContractRestrictions contractRestrictions) {
+        this.contractRestrictions = contractRestrictions;
     }
 }
