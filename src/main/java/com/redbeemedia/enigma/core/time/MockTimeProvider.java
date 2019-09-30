@@ -19,4 +19,9 @@ public class MockTimeProvider implements ITimeProvider {
     public long getTime() {
         return currentTime;
     }
+
+    @Override
+    public boolean isReady(Duration maxBlocktime) {
+        return true;
+    }
 }
