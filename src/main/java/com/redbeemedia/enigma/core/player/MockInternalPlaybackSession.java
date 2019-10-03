@@ -22,6 +22,7 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private IPlayable playable = new MockPlayable("mockAsset");
     private IStreamPrograms streamPrograms = null;
     private IContractRestrictions contractRestrictions = new MockContractRestrictions();
+    private IEnigmaPlayerConnection playerConnection = new MockEnigmaPlayerConnection();
 
     public MockInternalPlaybackSession(boolean live) {
         this(live, -1L);
@@ -142,5 +143,10 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public void setContractRestrictions(IContractRestrictions contractRestrictions) {
         this.contractRestrictions = contractRestrictions;
+    }
+
+    @Override
+    public IEnigmaPlayerConnection getPlayerConnection() {
+        return playerConnection;
     }
 }

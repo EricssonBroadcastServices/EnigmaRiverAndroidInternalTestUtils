@@ -1,5 +1,7 @@
 package com.redbeemedia.enigma.core.player;
 
+import com.redbeemedia.enigma.core.entitlement.IEntitlementProvider;
+import com.redbeemedia.enigma.core.entitlement.MockEntitlementProvider;
 import com.redbeemedia.enigma.core.restriction.IContractRestrictions;
 import com.redbeemedia.enigma.core.restriction.MockContractRestrictions;
 import com.redbeemedia.enigma.core.session.ISession;
@@ -12,11 +14,13 @@ public class MockInternalPlaybackSessionConstructorArgs {
     private String id = "mockPBS";
     private ITimeProvider timeProvider = new MockTimeProvider();
     private StreamInfo streamInfo = StreamInfo.createForNull();
+    private IStreamPrograms streamPrograms = new MockStreamPrograms();
     private IPlaybackSessionInfo playbackSessionInfo = new MockPlaybackSessionInfo();
     private IContractRestrictions contractRestrictions = new MockContractRestrictions();
+    private IEntitlementProvider entitlementProvider = new MockEntitlementProvider();
 
     public InternalPlaybackSession.ConstructorArgs create() {
-        return new InternalPlaybackSession.ConstructorArgs(session, id, timeProvider, streamInfo, playbackSessionInfo, contractRestrictions);
+        return new InternalPlaybackSession.ConstructorArgs(session, id, timeProvider, streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, entitlementProvider);
     }
 
     public ISession getSession() {
@@ -70,6 +74,24 @@ public class MockInternalPlaybackSessionConstructorArgs {
 
     public MockInternalPlaybackSessionConstructorArgs setContractRestrictions(IContractRestrictions contractRestrictions) {
         this.contractRestrictions = contractRestrictions;
+        return this;
+    }
+
+    public IStreamPrograms getStreamPrograms() {
+        return streamPrograms;
+    }
+
+    public MockInternalPlaybackSessionConstructorArgs setStreamPrograms(IStreamPrograms streamPrograms) {
+        this.streamPrograms = streamPrograms;
+        return this;
+    }
+
+    public IEntitlementProvider getEntitlementProvider() {
+        return entitlementProvider;
+    }
+
+    public MockInternalPlaybackSessionConstructorArgs setEntitlementProvider(IEntitlementProvider entitlementProvider) {
+        this.entitlementProvider = entitlementProvider;
         return this;
     }
 }
