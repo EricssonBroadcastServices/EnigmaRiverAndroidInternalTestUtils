@@ -1,6 +1,6 @@
 package com.redbeemedia.enigma.core.login;
 
-import com.redbeemedia.enigma.core.error.Error;
+import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.session.ISession;
 
 public class MockLoginResultHandler implements ILoginResultHandler {
@@ -10,7 +10,7 @@ public class MockLoginResultHandler implements ILoginResultHandler {
     }
 
     @Override
-    public void onError(Error error) {
+    public void onError(EnigmaError error) {
         //ignore
     }
 }

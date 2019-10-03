@@ -1,6 +1,6 @@
 package com.redbeemedia.enigma.core.testutil;
 
-import com.redbeemedia.enigma.core.error.Error;
+import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.http.HttpStatus;
 
 import org.hamcrest.Description;
@@ -22,7 +22,7 @@ public abstract class HttpToErrorValidator {
         final List<ErrorExpectation> errorExpectations = new ArrayList<>();
         onRegisterErrorExpectation(new IExpectationRegistry() {
             @Override
-            public void registerExpectedType(int code, String message, Class<? extends Error> errorType) {
+            public void registerExpectedType(int code, String message, Class<? extends EnigmaError> errorType) {
                 errorExpectations.add(new ErrorExpectation(new EnigmaErrorResponse(code, message), new InstanceOfMatcher(errorType) {
                     @Override
                     public void describeTo(Description description) {
@@ -54,14 +54,14 @@ public abstract class HttpToErrorValidator {
     }
     public static class ErrorExpectation {
         private EnigmaErrorResponse errorResponse;
-        private Matcher<Error> errorMatcher;
+        private Matcher<EnigmaError> errorMatcher;
 
-        public ErrorExpectation(EnigmaErrorResponse errorResponse, Matcher<Error> errorMatcher) {
+        public ErrorExpectation(EnigmaErrorResponse errorResponse, Matcher<EnigmaError> errorMatcher) {
             this.errorResponse = errorResponse;
             this.errorMatcher = errorMatcher;
         }
 
-        public Matcher<Error> getErrorMatcher() {
+        public Matcher<EnigmaError> getErrorMatcher() {
             return errorMatcher;
         }
 
@@ -74,7 +74,7 @@ public abstract class HttpToErrorValidator {
     }
 
     public interface IExpectationRegistry {
-        void registerExpectedType(int code, String message, Class<? extends Error> errorType);
+        void registerExpectedType(int code, String message, Class<? extends EnigmaError> errorType);
     }
 
     public interface IHttpResponseHandler {

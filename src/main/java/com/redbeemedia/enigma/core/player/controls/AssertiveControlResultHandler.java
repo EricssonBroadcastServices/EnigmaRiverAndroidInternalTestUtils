@@ -1,6 +1,6 @@
 package com.redbeemedia.enigma.core.player.controls;
 
-import com.redbeemedia.enigma.core.error.Error;
+import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.testutil.Counter;
 
 public class AssertiveControlResultHandler implements IControlResultHandler {
@@ -23,7 +23,7 @@ public class AssertiveControlResultHandler implements IControlResultHandler {
     }
 
     @Override
-    public void onError(Error error) {
+    public void onError(EnigmaError error) {
         responseCounter.count();
         errorCounter.count();
     }
