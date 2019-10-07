@@ -27,7 +27,7 @@ public class MockStreamInfo extends StreamInfo {
         }
 
         public static Args liveStream() {
-            return new Args().setLive(true).setStaticManifest(false);
+            return new Args().setLive(true).setStaticManifest(false).setStart(Duration.days(10000));
         }
 
         public Args setLive(boolean live) {
