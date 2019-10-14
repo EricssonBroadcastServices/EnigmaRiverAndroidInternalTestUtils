@@ -47,10 +47,10 @@ public class Counter {
     }
 
     public void assertExpected() {
-        assertCount(expectedCounts);
+        Assert.assertEquals(expectedCounts, counts);
     }
 
     public void assertExpected(String message) {
-        assertCount(message, expectedCounts);
+        Assert.assertEquals(message, expectedCounts, counts);
     }
 }
