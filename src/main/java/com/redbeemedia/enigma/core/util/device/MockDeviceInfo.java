@@ -8,7 +8,7 @@ public class MockDeviceInfo implements IDeviceInfo {
 
     @Override
     public String getModel() {
-        return "model";
+        return "testModel";
     }
 
     @Override
