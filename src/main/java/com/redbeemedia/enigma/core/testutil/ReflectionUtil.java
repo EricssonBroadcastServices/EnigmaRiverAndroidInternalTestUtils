@@ -1,6 +1,11 @@
 package com.redbeemedia.enigma.core.testutil;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class ReflectionUtil {
 
@@ -60,5 +65,21 @@ public class ReflectionUtil {
         public boolean hasValueSet() {
             return valueSet;
         }
+    }
+
+    public static Collection<Method> getPublicMethods(Class<?> owner, IPublicMethodFilter filter) {
+        List<Method> methods = new ArrayList<>();
+        for(Method method : owner.getMethods()) {
+            method.setAccessible(true);
+            if(filter.matches(Modifier.isStatic(method.getModifiers()), method.getReturnType(), method.getName(), method.getParameterTypes())) {
+                methods.add(method);
+            }
+        }
+        return methods;
+    }
+
+
+    public interface IPublicMethodFilter {
+        boolean matches(boolean isStatic, Class<?> returnType, String name, Class<?>[] parametersTypes);
     }
 }
