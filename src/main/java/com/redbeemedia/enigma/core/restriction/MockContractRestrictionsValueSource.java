@@ -32,4 +32,9 @@ public class MockContractRestrictionsValueSource implements IContractRestriction
         values.put(name, value);
         return this;
     }
+
+    public <T> MockContractRestrictionsValueSource put(BasicContractRestriction<T> contractRestriction, T value) {
+        values.put(contractRestriction.getPropertyName(), value);
+        return this;
+    }
 }

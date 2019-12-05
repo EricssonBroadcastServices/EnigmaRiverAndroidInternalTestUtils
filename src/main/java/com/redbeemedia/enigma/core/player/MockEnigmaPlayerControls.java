@@ -56,5 +56,13 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
         resultHandler.onDone();
     }
 
+    @Override
+    public void nextProgram(IControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
 
+    @Override
+    public void previousProgram(IControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
 }

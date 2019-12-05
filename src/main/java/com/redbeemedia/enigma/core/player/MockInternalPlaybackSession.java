@@ -19,8 +19,8 @@ import java.util.List;
 
 public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     private StreamInfo streamInfo;
-    private IPlayable playable = new MockPlayable("mockAsset");
     private IStreamPrograms streamPrograms = null;
+    private IPlaybackSessionInfo playbackSessionInfo = new MockPlaybackSessionInfo();
     private IContractRestrictions contractRestrictions = new MockContractRestrictions();
     private IEnigmaPlayerConnection playerConnection = new MockEnigmaPlayerConnection();
 
@@ -64,8 +64,18 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public IPlaybackSessionInfo getPlaybackSessionInfo() {
+        return playbackSessionInfo;
+    }
+
+    public MockInternalPlaybackSession setPlaybackSessionInfo(IPlaybackSessionInfo playbackSessionInfo) {
+        this.playbackSessionInfo = playbackSessionInfo;
+        return this;
+    }
+
+    @Override
     public IPlayable getPlayable() {
-        return playable;
+        return new MockPlayable(playbackSessionInfo.getAssetId());
     }
 
     @Override
@@ -132,7 +142,7 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
 
     @Override
     public boolean isSeekToLiveAllowed() {
-        return true;
+        return true && isSeekAllowed();
     }
 
     @Override

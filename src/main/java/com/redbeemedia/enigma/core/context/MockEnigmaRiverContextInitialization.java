@@ -2,6 +2,7 @@ package com.redbeemedia.enigma.core.context;
 
 import com.redbeemedia.enigma.core.activity.IActivityLifecycleManagerFactory;
 import com.redbeemedia.enigma.core.activity.MockActivityLifecycleManagerFactory;
+import com.redbeemedia.enigma.core.epg.IEpgLocator;
 import com.redbeemedia.enigma.core.epg.MockEpgLocator;
 import com.redbeemedia.enigma.core.http.IHttpHandler;
 import com.redbeemedia.enigma.core.http.MockHttpHandler;
@@ -43,5 +44,10 @@ public class MockEnigmaRiverContextInitialization extends EnigmaRiverContext.Eni
     @Override
     public MockEnigmaRiverContextInitialization setTaskFactory(ITaskFactory taskFactory) {
         return (MockEnigmaRiverContextInitialization) super.setTaskFactory(taskFactory);
+    }
+
+    @Override
+    public MockEnigmaRiverContextInitialization setEpgLocator(IEpgLocator epgLocator) {
+        return (MockEnigmaRiverContextInitialization) super.setEpgLocator(epgLocator);
     }
 }

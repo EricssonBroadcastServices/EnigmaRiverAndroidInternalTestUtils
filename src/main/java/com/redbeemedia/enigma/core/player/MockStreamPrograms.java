@@ -9,12 +9,7 @@ public class MockStreamPrograms implements IStreamPrograms {
     }
 
     @Override
-    public IProgram getNext(IProgram program) {
-        return null;
-    }
-
-    @Override
-    public IProgram getPrevious(IProgram program) {
+    public Long getNeighbouringSectionStartOffset(long fromOffset, boolean searchBackwards) {
         return null;
     }
 }
