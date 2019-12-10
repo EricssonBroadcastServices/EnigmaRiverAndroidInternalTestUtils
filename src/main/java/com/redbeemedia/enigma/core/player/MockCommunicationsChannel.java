@@ -6,4 +6,8 @@ public class MockCommunicationsChannel implements IEnigmaPlayerConnection.ICommu
     @Override
     public void onPlaybackError(EnigmaError error, boolean endStream) {
     }
+
+    @Override
+    public void onExpirePlaybackSession(PlaybackSessionSeed playbackSessionSeed) {
+    }
 }

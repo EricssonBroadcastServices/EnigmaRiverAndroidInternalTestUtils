@@ -7,6 +7,7 @@ public class Interruptor extends Thread {
     private final Thread threadToInterrupt;
     private final long timeoutMillis;
     private boolean cancelled = false;
+    private volatile boolean didInterupt = false;
 
     public Interruptor(Thread threadToInterrupt, long timeoutMillis) {
         this.threadToInterrupt = threadToInterrupt;
@@ -24,11 +25,16 @@ public class Interruptor extends Thread {
         }
         if(!cancelled) {
             threadToInterrupt.interrupt();
+            didInterupt = true;
         }
     }
 
     public void cancel() {
         cancelled = true;
         interrupt();
+    }
+
+    public boolean didInterrupt() {
+        return didInterupt;
     }
 }
