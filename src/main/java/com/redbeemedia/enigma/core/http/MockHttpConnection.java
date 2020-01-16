@@ -11,6 +11,14 @@ public class MockHttpConnection implements IHttpConnection {
         headers.put(name, value);
     }
 
+    @Override
+    public void setDoOutput(boolean value) {
+    }
+
+    @Override
+    public void setDoInput(boolean value) {
+    }
+
     public Map<String, String> getHeaders() {
         return headers;
     }
