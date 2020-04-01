@@ -15,7 +15,7 @@ public class MockPlaybackSessionFactory implements IPlaybackSessionFactory {
                            IPlaybackSessionFactory.IEnigmaPlayerCallbacks playerConnector) {
 
         playerConnector.deliverPlaybackSession(newInternalPlaybackSession());
-        playerConnector.loadIntoPlayerImplementation("url", playResultHandler,  new JSONObject(), playbackProperties);
+        playerConnector.loadIntoPlayerImplementation("url", playResultHandler,  new JSONObject(), playbackProperties, null);
     }
 
     public IInternalPlaybackSession newInternalPlaybackSession() {
