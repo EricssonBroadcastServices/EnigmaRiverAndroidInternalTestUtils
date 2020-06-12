@@ -10,6 +10,7 @@ public class MockProgram implements IProgram {
     private final long end;
     private final IPlayable playable;
     private String assetId = "mockProgramAsset";
+    private String programId = "mockProgramId";
 
     public MockProgram(long start, long end) {
         this("mock", start, end);
@@ -59,6 +60,16 @@ public class MockProgram implements IProgram {
 
     public MockProgram setAssetId(String assetId) {
         this.assetId = assetId;
+        return this;
+    }
+
+    @Override
+    public String getProgramId() {
+        return programId;
+    }
+
+    public MockProgram setProgramId(String programId) {
+        this.programId = programId;
         return this;
     }
 }

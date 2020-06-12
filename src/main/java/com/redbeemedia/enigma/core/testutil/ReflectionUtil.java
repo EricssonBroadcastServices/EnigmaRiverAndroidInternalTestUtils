@@ -78,8 +78,27 @@ public class ReflectionUtil {
         return methods;
     }
 
+    public static Collection<Field> getFields(Class<?> owner, IFieldFilter filter) {
+        List<Field> fields = new ArrayList<>();
+        for(Field field : owner.getDeclaredFields()) {
+            field.setAccessible(true);
+            if(filter.matches(field.getModifiers(), field.getType(), field.getName(), owner)) {
+                fields.add(field);
+            }
+        }
+        Class<?> superclass = owner.getSuperclass();
+        if(superclass != null) {
+            fields.addAll(getFields(superclass, filter));
+        }
+        return fields;
+    }
+
 
     public interface IPublicMethodFilter {
         boolean matches(boolean isStatic, Class<?> returnType, String name, Class<?>[] parametersTypes);
+    }
+
+    public interface IFieldFilter {
+        boolean matches(int modifiers, Class<?> fieldType, String name, Class<?> declaringClass);
     }
 }

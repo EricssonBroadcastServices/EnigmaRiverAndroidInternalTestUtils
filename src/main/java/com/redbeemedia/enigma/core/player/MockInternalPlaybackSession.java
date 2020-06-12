@@ -10,6 +10,7 @@ import com.redbeemedia.enigma.core.player.track.IPlayerImplementationTrack;
 import com.redbeemedia.enigma.core.restriction.IContractRestrictions;
 import com.redbeemedia.enigma.core.restriction.MockContractRestrictions;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
+import com.redbeemedia.enigma.core.video.IVideoTrack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,6 +88,10 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void fireSeekCompleted() {
+    }
+
+    @Override
     public void setTracks(Collection<? extends IPlayerImplementationTrack> tracks) {
     }
 
@@ -96,6 +101,10 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
 
     @Override
     public void setSelectedAudioTrack(IAudioTrack track) {
+    }
+
+    @Override
+    public void setSelectedVideoTrack(IVideoTrack track) {
     }
 
     @Override

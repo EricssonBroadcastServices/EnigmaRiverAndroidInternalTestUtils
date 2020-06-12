@@ -3,10 +3,13 @@ package com.redbeemedia.enigma.core.player;
 import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.time.Duration;
+import com.redbeemedia.enigma.core.video.IVideoTrack;
+import com.redbeemedia.enigma.core.video.MockVideoTrack;
 
 public class MockPlaybackSessionInfo implements IPlaybackSessionInfo {
     private Duration currentPlaybackOffset = Duration.millis(0);
     private String assetId = "mockAssetId";
+    private String programId = "mockProgramId";
     private IPlayable playable = new MockPlayable(assetId);
     private String mediaLocator = "https://www.example.com/someAsset";
     private String playerTechnologyName = "UnitTestMockPlayer";
@@ -69,6 +72,16 @@ public class MockPlaybackSessionInfo implements IPlaybackSessionInfo {
 
     public MockPlaybackSessionInfo setPlayerTechnologyVersion(String playerTechnologyVersion) {
         this.playerTechnologyVersion = playerTechnologyVersion;
+        return this;
+    }
+
+    @Override
+    public String getCurrentProgramId() {
+        return programId;
+    }
+
+    public MockPlaybackSessionInfo setProgramId(String programId) {
+        this.programId = programId;
         return this;
     }
 }

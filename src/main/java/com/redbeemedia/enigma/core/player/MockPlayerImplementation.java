@@ -3,6 +3,8 @@ package com.redbeemedia.enigma.core.player;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
+import com.redbeemedia.enigma.core.video.IVideoTrack;
+import com.redbeemedia.enigma.core.video.MockVideoTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
@@ -80,5 +82,9 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     @Override
     public IPlaybackTechnologyIdentifier getTechnologyIdentifier() {
         return new MockPlaybackTechnologyIdentifier();
+    }
+
+    public IPlayerImplementationListener getPlayerImplementationListener() {
+        return playerImplementationListener;
     }
 }
