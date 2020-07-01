@@ -1,6 +1,6 @@
 package com.redbeemedia.enigma.core.playrequest;
 
-import com.redbeemedia.enigma.core.format.IMediaFormatPreferenceSpec;
+import com.redbeemedia.enigma.core.format.IMediaFormatSelector;
 
 public class MockPlaybackProperties implements IPlaybackProperties {
     @Override
@@ -9,7 +9,7 @@ public class MockPlaybackProperties implements IPlaybackProperties {
     }
 
     @Override
-    public IMediaFormatPreferenceSpec getMediaFormatPreferences() {
+    public IMediaFormatSelector getMediaFormatSelector() {
         return null;
     }
 }
