@@ -3,8 +3,6 @@ package com.redbeemedia.enigma.core.player;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
-import com.redbeemedia.enigma.core.video.IVideoTrack;
-import com.redbeemedia.enigma.core.video.MockVideoTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
@@ -21,13 +19,17 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     @Override
     public void load(ILoadRequest loadRequest, IPlayerImplementationControlResultHandler resultHandler) {
         resultHandler.onDone();
-        playerImplementationListener.onLoadCompleted();
+        if(playerImplementationListener != null) {
+            playerImplementationListener.onLoadCompleted();
+        }
     }
 
     @Override
     public void start(IPlayerImplementationControlResultHandler resultHandler) {
         resultHandler.onDone();
-        playerImplementationListener.onPlaybackStarted();
+        if(playerImplementationListener != null) {
+            playerImplementationListener.onPlaybackStarted();
+        }
     }
 
     @Override

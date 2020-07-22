@@ -1,6 +1,5 @@
 package com.redbeemedia.enigma.core.http.mockresponses;
 
-import com.redbeemedia.enigma.core.http.IHttpHandler;
 import com.redbeemedia.enigma.core.http.IHttpCall;
 
 import java.net.URL;
@@ -13,7 +12,7 @@ public class MockOnExceptionResponse extends AbstractMockResponse {
     }
 
     @Override
-    public void doHttp(URL url, IHttpCall httpCall, IHttpResponseHandler responseHandler) {
+    public void doSimpleHttp(URL url, IHttpCall httpCall, IHttpResponseHandler responseHandler) {
         responseHandler.onException(exception);
     }
 }

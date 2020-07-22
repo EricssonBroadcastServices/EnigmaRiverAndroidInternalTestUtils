@@ -3,6 +3,8 @@ package com.redbeemedia.enigma.core.player;
 import android.os.Handler;
 
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
+import com.redbeemedia.enigma.core.drm.IDrmInfo;
+import com.redbeemedia.enigma.core.lifecycle.ILifecycleListener;
 import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
@@ -19,11 +21,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class MockInternalPlaybackSession implements IInternalPlaybackSession {
-    private StreamInfo streamInfo;
+    private JsonStreamInfo streamInfo;
     private IStreamPrograms streamPrograms = null;
     private IPlaybackSessionInfo playbackSessionInfo = new MockPlaybackSessionInfo();
     private IContractRestrictions contractRestrictions = new MockContractRestrictions();
     private IEnigmaPlayerConnection playerConnection = new MockEnigmaPlayerConnection();
+    private IDrmInfo drmInfo = null;
 
     public MockInternalPlaybackSession(boolean live) {
         this(live, -1L);
@@ -35,7 +38,7 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
             jsonObject.put("live", live);
             jsonObject.put("static", !live);
             jsonObject.put("start", start);
-            this.streamInfo = new StreamInfo(jsonObject);
+            this.streamInfo = new JsonStreamInfo(jsonObject);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -50,7 +53,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
-    public StreamInfo getStreamInfo() {
+    public void addInternalListener(IInternalPlaybackSessionListener listener) {
+    }
+
+    @Override
+    public JsonStreamInfo getStreamInfo() {
         return streamInfo;
     }
 
@@ -67,6 +74,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public IPlaybackSessionInfo getPlaybackSessionInfo() {
         return playbackSessionInfo;
+    }
+
+    @Override
+    public IDrmInfo getDrmInfo() {
+        return drmInfo;
+    }
+
+    public MockInternalPlaybackSession setDrmInfo(IDrmInfo drmInfo) {
+        this.drmInfo = drmInfo;
+        return this;
     }
 
     public MockInternalPlaybackSession setPlaybackSessionInfo(IPlaybackSessionInfo playbackSessionInfo) {

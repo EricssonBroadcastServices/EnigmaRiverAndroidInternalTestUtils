@@ -1,13 +1,14 @@
 package com.redbeemedia.enigma.core.playrequest;
 
 import com.redbeemedia.enigma.core.playable.IPlayable;
-import com.redbeemedia.enigma.core.playable.IPlayableHandler;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
+import com.redbeemedia.enigma.core.session.ISession;
 
-public class MockPlayRequest implements IPlayRequest {
+public class MockPlayRequest extends BasePlayRequest {
     private IPlayable playable;
     private IPlaybackProperties playbackProperties;
     private IPlayResultHandler resultHandler;
+    private ISession session = null;
 
     public MockPlayRequest() {
         this("mockAssetID");
@@ -47,5 +48,15 @@ public class MockPlayRequest implements IPlayRequest {
     public MockPlayRequest setResultHandler(IPlayResultHandler resultHandler) {
         this.resultHandler = resultHandler;
         return this;
+    }
+
+    public MockPlayRequest setSession(ISession session) {
+        this.session = session;
+        return this;
+    }
+
+    @Override
+    public ISession getSession() {
+        return session;
     }
 }

@@ -16,7 +16,7 @@ public class MockOnResponseResponse extends AbstractMockResponse {
     }
 
     @Override
-    public void doHttp(URL url, IHttpCall httpCall, IHttpResponseHandler responseHandler) {
+    public void doSimpleHttp(URL url, IHttpCall httpCall, IHttpResponseHandler responseHandler) {
         responseHandler.onResponse(httpStatus, new ByteArrayInputStream(data));
     }
 }

@@ -5,7 +5,7 @@ import com.redbeemedia.enigma.core.time.Duration;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MockStreamInfo extends StreamInfo {
+public class MockStreamInfo extends JsonStreamInfo {
     public MockStreamInfo(Args args) throws JSONException {
         super(args.toJson());
     }

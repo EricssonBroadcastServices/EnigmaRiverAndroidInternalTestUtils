@@ -6,8 +6,11 @@ import com.redbeemedia.enigma.core.epg.IEpgLocator;
 import com.redbeemedia.enigma.core.epg.MockEpgLocator;
 import com.redbeemedia.enigma.core.http.IHttpHandler;
 import com.redbeemedia.enigma.core.http.MockHttpHandler;
+import com.redbeemedia.enigma.core.network.INetworkMonitor;
+import com.redbeemedia.enigma.core.network.MockNetworkMonitor;
 import com.redbeemedia.enigma.core.task.ITaskFactory;
-import com.redbeemedia.enigma.core.task.MockTaskFactory;
+import com.redbeemedia.enigma.core.task.ITaskFactoryProvider;
+import com.redbeemedia.enigma.core.task.MockTaskFactoryProvider;
 import com.redbeemedia.enigma.core.util.device.IDeviceInfo;
 import com.redbeemedia.enigma.core.util.device.MockDeviceInfo;
 
@@ -17,8 +20,9 @@ public class MockEnigmaRiverContextInitialization extends EnigmaRiverContext.Eni
         setDeviceInfo(new MockDeviceInfo());
         setHttpHandler(new MockHttpHandler());
         setActivityLifecycleManagerFactory(new MockActivityLifecycleManagerFactory());
-        setTaskFactory(new MockTaskFactory());
+        setTaskFactoryProvider(new MockTaskFactoryProvider());
         setEpgLocator(new MockEpgLocator());
+        setNetworkMonitor(new MockNetworkMonitor());
     }
 
     @Override
@@ -49,5 +53,15 @@ public class MockEnigmaRiverContextInitialization extends EnigmaRiverContext.Eni
     @Override
     public MockEnigmaRiverContextInitialization setEpgLocator(IEpgLocator epgLocator) {
         return (MockEnigmaRiverContextInitialization) super.setEpgLocator(epgLocator);
+    }
+
+    @Override
+    public MockEnigmaRiverContextInitialization setTaskFactoryProvider(ITaskFactoryProvider taskFactoryProvider) {
+        return (MockEnigmaRiverContextInitialization) super.setTaskFactoryProvider(taskFactoryProvider);
+    }
+
+    @Override
+    public MockEnigmaRiverContextInitialization setNetworkMonitor(INetworkMonitor networkMonitor) {
+        return (MockEnigmaRiverContextInitialization) super.setNetworkMonitor(networkMonitor);
     }
 }

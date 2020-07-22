@@ -23,7 +23,7 @@ public class MockHttpHandler implements IHttpHandler {
     private List<String> log = new ArrayList<>();
 
     @Override
-    public void doHttp(URL url, IHttpCall httpCall, IHttpResponseHandler response) {
+    public IHttpTask doHttp(URL url, IHttpCall httpCall, IHttpResponseHandler response) {
         try {
             String urlString = url.toString();
             MockHttpConnection mockHttpConnection = new MockHttpConnection();
@@ -43,10 +43,13 @@ public class MockHttpHandler implements IHttpHandler {
             IHttpHandler responseHandler = getReponseHandler(urlString);
             if(responseHandler != null) {
                 responseHandler.doHttp(url, httpCall, response);
+            } else {
+                onIgnoredRequest(url, httpCall, response);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return new MockHttpTask();
     }
 
     private IHttpHandler getReponseHandler(String urlString) {
@@ -67,6 +70,10 @@ public class MockHttpHandler implements IHttpHandler {
     @Override
     public void doHttpBlocking(URL url, IHttpCall httpCall, IHttpResponseHandler responseHandler) {
         doHttp(url, httpCall, responseHandler);
+    }
+
+    protected void onIgnoredRequest(URL url, IHttpCall httpCall, IHttpResponseHandler response) {
+        //Ignore
     }
 
     public void queueResponse(IHttpHandler response) {
@@ -96,5 +103,9 @@ public class MockHttpHandler implements IHttpHandler {
             specialResponses.put(urlPattern, queue);
         }
         queue.add(new MockOnResponseResponse(httpStatus, responseBody.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    public void queueResponseOk(Pattern urlPattern, String responseBody) {
+        queueResponse(urlPattern, new HttpStatus(200, "OK"), responseBody);
     }
 }
