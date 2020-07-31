@@ -7,4 +7,9 @@ public class MockModuleContextInitialization implements IModuleContextInitializa
     public Application getApplication() {
         return null;
     }
+
+    @Override
+    public <I extends IModuleInitializationSettings> I getModuleSettings(IModuleInfo<I> moduleInfo) {
+        return null;
+    }
 }
