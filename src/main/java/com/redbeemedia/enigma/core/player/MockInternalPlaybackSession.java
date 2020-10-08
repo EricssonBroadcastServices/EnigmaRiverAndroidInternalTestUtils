@@ -167,6 +167,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public IVideoTrack getSelectedVideoTrack() {
+        return null;
+    }
+
+    @Override
     public boolean isSeekToLiveAllowed() {
         return true && isSeekAllowed();
     }
