@@ -65,4 +65,9 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     public void previousProgram(IControlResultHandler resultHandler) {
         resultHandler.onDone();
     }
+
+    @Override
+    public void setMaxVideoTrackDimensions(int width, int height, IControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
 }

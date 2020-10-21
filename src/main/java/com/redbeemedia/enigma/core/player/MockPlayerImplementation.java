@@ -6,7 +6,12 @@ import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
-    private ITimelinePositionFactory timelinePositionFactory;
+    protected ITimelinePositionFactory timelinePositionFactory;
+
+    public Boolean isLiveStream = false;
+    public long currentPosition = 1234;
+    public long livePosition = 9000;
+    public long duration = 10000;
 
     @Override
     public void install(IEnigmaPlayerEnvironment environment) {
@@ -68,7 +73,7 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public ITimelinePosition getCurrentPosition() {
-        return timelinePositionFactory.newPosition(1234L);
+        return timelinePositionFactory.newPosition(currentPosition);
     }
 
     @Override
@@ -78,7 +83,12 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public ITimelinePosition getCurrentEndBound() {
-        return timelinePositionFactory.newPosition(10000L);
+        return timelinePositionFactory.newPosition(duration);
+    }
+
+    @Override
+    public ITimelinePosition getLivePosition() {
+        return isLiveStream ? timelinePositionFactory.newPosition(livePosition) : null;
     }
 
     @Override
@@ -88,5 +98,13 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     public IPlayerImplementationListener getPlayerImplementationListener() {
         return playerImplementationListener;
+    }
+
+    public ITimelinePositionFactory getTimelinePositionFactory() {
+        return timelinePositionFactory;
+    }
+
+    @Override
+    public void setMaxVideoTrackDimensions(int width, int height, IPlayerImplementationControlResultHandler controlResultHandler) {
     }
 }
