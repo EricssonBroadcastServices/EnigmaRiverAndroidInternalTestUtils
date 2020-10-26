@@ -167,6 +167,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public List<IVideoTrack> getVideoTracks() {
+        return null;
+    }
+
+    @Override
     public IVideoTrack getSelectedVideoTrack() {
         return null;
     }

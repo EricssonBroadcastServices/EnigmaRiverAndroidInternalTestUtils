@@ -1,5 +1,6 @@
 package com.redbeemedia.enigma.core.player;
 
+import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.playrequest.IPlayRequest;
 
 import org.json.JSONArray;
@@ -35,6 +36,11 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
     @Override
     public void onStarted(IInternalPlaybackSession internalPlaybackSession) {
         playRequest.getResultHandler().onStarted(internalPlaybackSession);
+    }
+
+    @Override
+    public void onErrorDuringStartup(EnigmaError error) {
+        throw new RuntimeException("Please override this method to ignore error or verify expected error");
     }
 
     public static class MockEnigmaPlayerCallbacks implements IEnigmaPlayerCallbacks {
