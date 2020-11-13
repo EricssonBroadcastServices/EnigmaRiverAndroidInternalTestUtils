@@ -96,6 +96,8 @@ public class MockHttpHandler implements IHttpHandler {
         return log;
     }
 
+    public void clearLog() { log = new ArrayList<>(); }
+
     public void queueResponse(Pattern urlPattern, HttpStatus httpStatus, String responseBody) {
         Queue<IHttpHandler> queue = specialResponses.get(urlPattern);
         if(queue == null) {

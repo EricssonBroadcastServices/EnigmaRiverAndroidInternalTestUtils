@@ -8,6 +8,7 @@ import com.redbeemedia.enigma.core.http.IHttpHandler;
 import com.redbeemedia.enigma.core.http.MockHttpHandler;
 import com.redbeemedia.enigma.core.network.INetworkMonitor;
 import com.redbeemedia.enigma.core.network.MockNetworkMonitor;
+import com.redbeemedia.enigma.core.playrequest.IAdInsertionFactory;
 import com.redbeemedia.enigma.core.task.ITaskFactory;
 import com.redbeemedia.enigma.core.task.ITaskFactoryProvider;
 import com.redbeemedia.enigma.core.task.MockTaskFactoryProvider;
@@ -63,5 +64,10 @@ public class MockEnigmaRiverContextInitialization extends EnigmaRiverContext.Eni
     @Override
     public MockEnigmaRiverContextInitialization setNetworkMonitor(INetworkMonitor networkMonitor) {
         return (MockEnigmaRiverContextInitialization) super.setNetworkMonitor(networkMonitor);
+    }
+
+    @Override
+    public MockEnigmaRiverContextInitialization setAdInsertionFactory(IAdInsertionFactory adInsertionFactory) {
+        return (MockEnigmaRiverContextInitialization) super.setAdInsertionFactory(adInsertionFactory);
     }
 }
