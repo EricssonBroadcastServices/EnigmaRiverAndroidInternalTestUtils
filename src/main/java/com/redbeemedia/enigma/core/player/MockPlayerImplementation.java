@@ -6,7 +6,7 @@ import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
-    protected ITimelinePositionFactory timelinePositionFactory;
+    public ITimelinePositionFactory timelinePositionFactory;
 
     public Boolean isLiveStream = false;
     public long currentPosition = 1234;

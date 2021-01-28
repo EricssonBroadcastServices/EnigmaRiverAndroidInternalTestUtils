@@ -4,7 +4,6 @@ import android.os.Handler;
 
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.drm.IDrmInfo;
-import com.redbeemedia.enigma.core.lifecycle.ILifecycleListener;
 import com.redbeemedia.enigma.core.playable.IPlayable;
 import com.redbeemedia.enigma.core.playable.MockPlayable;
 import com.redbeemedia.enigma.core.playbacksession.IPlaybackSessionListener;
@@ -12,6 +11,7 @@ import com.redbeemedia.enigma.core.player.track.IPlayerImplementationTrack;
 import com.redbeemedia.enigma.core.restriction.IContractRestrictions;
 import com.redbeemedia.enigma.core.restriction.MockContractRestrictions;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
+import com.redbeemedia.enigma.core.video.ISpriteRepository;
 import com.redbeemedia.enigma.core.video.IVideoTrack;
 
 import org.json.JSONException;
@@ -173,6 +173,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
 
     @Override
     public IVideoTrack getSelectedVideoTrack() {
+        return null;
+    }
+
+    @Override
+    public ISpriteRepository getSpriteRepository() {
         return null;
     }
 

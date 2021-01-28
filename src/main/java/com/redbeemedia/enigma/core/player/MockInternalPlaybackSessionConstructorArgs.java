@@ -5,6 +5,7 @@ import com.redbeemedia.enigma.core.analytics.MockAnalyticsReporter;
 import com.redbeemedia.enigma.core.drm.IDrmInfo;
 import com.redbeemedia.enigma.core.restriction.IContractRestrictions;
 import com.redbeemedia.enigma.core.restriction.MockContractRestrictions;
+import com.redbeemedia.enigma.core.video.ISpriteRepository;
 
 public class MockInternalPlaybackSessionConstructorArgs {
     private JsonStreamInfo streamInfo = JsonStreamInfo.createForNull();
@@ -13,9 +14,10 @@ public class MockInternalPlaybackSessionConstructorArgs {
     private IContractRestrictions contractRestrictions = new MockContractRestrictions();
     private IDrmInfo drmInfo = null;
     private IAnalyticsReporter analyticsReporter = new MockAnalyticsReporter();
+    private ISpriteRepository videoSprites;
 
     public InternalPlaybackSession.ConstructorArgs create() {
-        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter);
+        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter, videoSprites);
     }
 
     public JsonStreamInfo getStreamInfo() {

@@ -22,6 +22,9 @@ public class MockHttpHandler implements IHttpHandler {
     private Map<Pattern, Queue<IHttpHandler>> specialResponses = new HashMap<>();
     private List<String> log = new ArrayList<>();
 
+    /** Set this flag to `true` if the last queued response should be kept in the queue after reply. */
+    public boolean keepLastResponse;
+
     @Override
     public IHttpTask doHttp(URL url, IHttpCall httpCall, IHttpResponseHandler response) {
         try {
@@ -47,6 +50,7 @@ public class MockHttpHandler implements IHttpHandler {
                 onIgnoredRequest(url, httpCall, response);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return new MockHttpTask();
@@ -57,12 +61,20 @@ public class MockHttpHandler implements IHttpHandler {
             if(pattern.matcher(urlString).matches()) {
                 Queue<IHttpHandler> specialQueue = specialResponses.get(pattern);
                 if(!specialQueue.isEmpty()) {
-                    return specialQueue.poll();
+                    if (keepLastResponse) {
+                        return specialQueue.peek();
+                    } else {
+                        return specialQueue.poll();
+                    }
                 }
             }
         }
         if(!responses.isEmpty()) {
-            return responses.poll();
+            if (keepLastResponse) {
+                return responses.peek();
+            } else {
+                return responses.poll();
+            }
         }
         return null;
     }
@@ -98,16 +110,23 @@ public class MockHttpHandler implements IHttpHandler {
 
     public void clearLog() { log = new ArrayList<>(); }
 
-    public void queueResponse(Pattern urlPattern, HttpStatus httpStatus, String responseBody) {
+    public void queueBinaryResponse(Pattern urlPattern, HttpStatus httpStatus, byte[] responseBody) {
         Queue<IHttpHandler> queue = specialResponses.get(urlPattern);
         if(queue == null) {
             queue = new LinkedList<>();
             specialResponses.put(urlPattern, queue);
         }
-        queue.add(new MockOnResponseResponse(httpStatus, responseBody.getBytes(StandardCharsets.UTF_8)));
+        queue.add(new MockOnResponseResponse(httpStatus, responseBody));
+    }
+    public void queueResponse(Pattern urlPattern, HttpStatus httpStatus, String responseBody) {
+        queueBinaryResponse(urlPattern, httpStatus, responseBody.getBytes(StandardCharsets.UTF_8));
     }
 
     public void queueResponseOk(Pattern urlPattern, String responseBody) {
         queueResponse(urlPattern, new HttpStatus(200, "OK"), responseBody);
+    }
+
+    public void queueBinaryResponseOk(Pattern urlPattern, byte[] responseBody) {
+        queueBinaryResponse(urlPattern, new HttpStatus(200, "OK"), responseBody);
     }
 }

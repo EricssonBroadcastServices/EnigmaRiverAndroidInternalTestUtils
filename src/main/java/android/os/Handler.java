@@ -1,6 +1,8 @@
 package android.os;
 
 public class Handler {
+    public Handler() { }
+
     public Handler(Looper looper) {
     }
 
@@ -9,6 +11,7 @@ public class Handler {
     }
 
     public boolean post(Runnable runnable) {
+        runnable.run();
         return true;
     }
 }
