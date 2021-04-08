@@ -12,4 +12,9 @@ public class MockPlaybackProperties implements IPlaybackProperties {
     public IMediaFormatSelector getMediaFormatSelector() {
         return null;
     }
+
+    @Override
+    public AdobePrimetime getAdobePrimetime() {
+        return null;
+    }
 }
