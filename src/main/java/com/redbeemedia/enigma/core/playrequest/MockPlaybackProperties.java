@@ -17,4 +17,8 @@ public class MockPlaybackProperties implements IPlaybackProperties {
     public AdobePrimetime getAdobePrimetime() {
         return null;
     }
+
+    @Override
+    public boolean enableAnalytics() { return true; }
+
 }
