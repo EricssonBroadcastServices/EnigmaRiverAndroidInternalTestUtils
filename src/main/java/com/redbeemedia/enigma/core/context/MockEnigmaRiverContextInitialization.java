@@ -37,6 +37,11 @@ public class MockEnigmaRiverContextInitialization extends EnigmaRiverContext.Eni
     }
 
     @Override
+    public MockEnigmaRiverContextInitialization setAnalyticsUrl(String analyticsUrl) {
+        return (MockEnigmaRiverContextInitialization) super.setAnalyticsUrl(analyticsUrl);
+    }
+
+    @Override
     public MockEnigmaRiverContextInitialization setExposureBaseUrl(String exposureBaseUrl) {
         return (MockEnigmaRiverContextInitialization) super.setExposureBaseUrl(exposureBaseUrl);
     }
