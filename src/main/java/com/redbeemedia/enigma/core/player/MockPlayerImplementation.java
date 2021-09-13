@@ -72,6 +72,11 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     }
 
     @Override
+    public void updateTimeBar(long millis) {
+
+    }
+
+    @Override
     public ITimelinePosition getCurrentPosition() {
         return timelinePositionFactory.newPosition(currentPosition);
     }

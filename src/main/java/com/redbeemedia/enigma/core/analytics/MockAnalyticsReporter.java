@@ -97,4 +97,14 @@ public class MockAnalyticsReporter implements IAnalyticsReporter {
     public void playbackProgramChanged(long offsetTime, String programId) {
 
     }
+
+    @Override
+    public void playbackAdStarted(long offsetTime, String adId) {
+
+    }
+
+    @Override
+    public void playbackAdCompleted(long offsetTime, String adId) {
+
+    }
 }

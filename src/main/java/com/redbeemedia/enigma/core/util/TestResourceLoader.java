@@ -4,11 +4,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+
 import java.io.ByteArrayOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 
 /** Load test data from files.
  The files must be located in a "resource" folder containing a
@@ -61,6 +62,7 @@ public class TestResourceLoader {
      * @param name the name of the file resource.
      */
     public String loadString(String name) throws IOException {
+
         InputStream inputStream = classType.getResourceAsStream(name);
 
         if (inputStream == null) { throw new IOException("File not found: " + name); }
@@ -77,6 +79,8 @@ public class TestResourceLoader {
      * Loads data and return it as a JSON object.
      */
     public JSONObject loadJSON(String name) throws IOException, JSONException {
+
         return new JSONObject(loadString(name));
+
     }
 }

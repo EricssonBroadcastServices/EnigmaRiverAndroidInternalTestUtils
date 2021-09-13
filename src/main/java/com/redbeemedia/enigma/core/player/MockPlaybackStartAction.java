@@ -1,5 +1,6 @@
 package com.redbeemedia.enigma.core.player;
 
+import com.redbeemedia.enigma.core.ads.IAdDetector;
 import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.playrequest.IPlayRequest;
 
@@ -10,6 +11,7 @@ import org.json.JSONObject;
 public class MockPlaybackStartAction implements IPlaybackStartAction {
     private final IPlayRequest playRequest;
     private final IEnigmaPlayerCallbacks playerConnection;
+    private IAdDetector adDetector;
 
     public MockPlaybackStartAction(IPlayRequest playRequest, IEnigmaPlayerCallbacks playerConnection) {
         this.playRequest = playRequest;
@@ -41,6 +43,11 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
     @Override
     public void onErrorDuringStartup(EnigmaError error) {
         throw new RuntimeException("Please override this method to ignore error or verify expected error");
+    }
+
+    @Override
+    public void setAdDetector(IAdDetector adDetector) {
+        this.adDetector = adDetector;
     }
 
     public static class MockEnigmaPlayerCallbacks implements IEnigmaPlayerCallbacks {

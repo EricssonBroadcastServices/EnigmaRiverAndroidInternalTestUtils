@@ -1,5 +1,7 @@
 package com.redbeemedia.enigma.core.player;
 
+import com.redbeemedia.enigma.core.ads.IAdDetector;
+import com.redbeemedia.enigma.core.ads.IAdMetadata;
 import com.redbeemedia.enigma.core.analytics.IAnalyticsReporter;
 import com.redbeemedia.enigma.core.analytics.MockAnalyticsReporter;
 import com.redbeemedia.enigma.core.drm.IDrmInfo;
@@ -15,9 +17,10 @@ public class MockInternalPlaybackSessionConstructorArgs {
     private IDrmInfo drmInfo = null;
     private IAnalyticsReporter analyticsReporter = new MockAnalyticsReporter();
     private ISpriteRepository videoSprites;
-
+    private IAdMetadata adsInfo;
+    private IAdDetector adDetector;
     public InternalPlaybackSession.ConstructorArgs create() {
-        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter, videoSprites);
+        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter, videoSprites, adsInfo, adDetector);
     }
 
     public JsonStreamInfo getStreamInfo() {

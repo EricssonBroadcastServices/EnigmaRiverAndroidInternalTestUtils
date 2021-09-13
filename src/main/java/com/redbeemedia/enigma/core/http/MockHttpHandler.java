@@ -44,7 +44,7 @@ public class MockHttpHandler implements IHttpHandler {
             logEntry.put("body", new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8));
             log.add(logEntry.toString());
             IHttpHandler responseHandler = getReponseHandler(urlString);
-            if(responseHandler != null) {
+            if(responseHandler != null && response != null) {
                 responseHandler.doHttp(url, httpCall, response);
             } else {
                 onIgnoredRequest(url, httpCall, response);

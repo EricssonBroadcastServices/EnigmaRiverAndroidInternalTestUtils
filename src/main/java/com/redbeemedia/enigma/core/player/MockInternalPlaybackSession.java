@@ -2,6 +2,7 @@ package com.redbeemedia.enigma.core.player;
 
 import android.os.Handler;
 
+import com.redbeemedia.enigma.core.ads.IAdMetadata;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.drm.IDrmInfo;
 import com.redbeemedia.enigma.core.playable.IPlayable;
@@ -79,6 +80,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public IDrmInfo getDrmInfo() {
         return drmInfo;
+    }
+
+    @Override
+    public IAdMetadata getAdsMetadata() {
+        return null;
     }
 
     public MockInternalPlaybackSession setDrmInfo(IDrmInfo drmInfo) {

@@ -8,7 +8,7 @@ import com.redbeemedia.enigma.core.http.IHttpHandler;
 import com.redbeemedia.enigma.core.http.MockHttpHandler;
 import com.redbeemedia.enigma.core.network.INetworkMonitor;
 import com.redbeemedia.enigma.core.network.MockNetworkMonitor;
-import com.redbeemedia.enigma.core.playrequest.IAdInsertionFactory;
+import com.redbeemedia.enigma.core.ads.IAdInsertionFactory;
 import com.redbeemedia.enigma.core.task.ITaskFactory;
 import com.redbeemedia.enigma.core.task.ITaskFactoryProvider;
 import com.redbeemedia.enigma.core.task.MockTaskFactoryProvider;
