@@ -2,6 +2,7 @@ package com.redbeemedia.enigma.core.player;
 
 import com.redbeemedia.enigma.core.ads.IAdDetector;
 import com.redbeemedia.enigma.core.error.EnigmaError;
+import com.redbeemedia.enigma.core.marker.IMarkerPointsDetector;
 import com.redbeemedia.enigma.core.playrequest.IPlayRequest;
 
 import org.json.JSONArray;
@@ -48,6 +49,11 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
     @Override
     public void setAdDetector(IAdDetector adDetector) {
         this.adDetector = adDetector;
+    }
+
+    @Override
+    public void setMarkerPointsDetector(IMarkerPointsDetector markerPointsDetector) {
+
     }
 
     public static class MockEnigmaPlayerCallbacks implements IEnigmaPlayerCallbacks {

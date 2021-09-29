@@ -107,6 +107,12 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setSeekLiveAllowed(boolean allowed) {
+
+    }
+
+
+    @Override
     public void fireEndReached() {
     }
 
@@ -151,6 +157,12 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     public boolean isSeekAllowed() {
         return true;
     }
+
+    @Override
+    public boolean isSeekInLiveAllowed() {
+        return false;
+    }
+
 
     @Override
     public List<ISubtitleTrack> getSubtitleTracks() {

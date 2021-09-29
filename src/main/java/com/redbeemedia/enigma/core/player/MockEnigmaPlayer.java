@@ -3,6 +3,7 @@ package com.redbeemedia.enigma.core.player;
 import android.os.Handler;
 
 import com.redbeemedia.enigma.core.ads.IAdDetector;
+import com.redbeemedia.enigma.core.marker.IMarkerPointsDetector;
 import com.redbeemedia.enigma.core.player.controls.IEnigmaPlayerControls;
 import com.redbeemedia.enigma.core.player.listener.IEnigmaPlayerListener;
 import com.redbeemedia.enigma.core.player.timeline.ITimeline;
@@ -52,6 +53,11 @@ public class MockEnigmaPlayer implements IEnigmaPlayer {
     }
 
     @Override
+    public IMarkerPointsDetector getMarkerPointsDetector() {
+        return null;
+    }
+
+    @Override
     public IEnigmaPlayer setCallbackHandler(IHandler handler) {
         return null;
     }
@@ -63,6 +69,11 @@ public class MockEnigmaPlayer implements IEnigmaPlayer {
 
     @Override
     public void setDefaultSession(ISession session) {
+    }
+
+    @Override
+    public boolean isLiveStream() {
+        return false;
     }
 
     @Override
