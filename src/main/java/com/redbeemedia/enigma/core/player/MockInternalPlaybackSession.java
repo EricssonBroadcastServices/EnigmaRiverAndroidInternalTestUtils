@@ -3,6 +3,7 @@ package com.redbeemedia.enigma.core.player;
 import android.os.Handler;
 
 import com.redbeemedia.enigma.core.ads.IAdMetadata;
+import com.redbeemedia.enigma.core.analytics.IAnalyticsReporter;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.drm.IDrmInfo;
 import com.redbeemedia.enigma.core.playable.IPlayable;
@@ -60,6 +61,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     @Override
     public JsonStreamInfo getStreamInfo() {
         return streamInfo;
+    }
+
+    @Override
+    public IAnalyticsReporter getAnalyticsReporter() {
+        return null;
     }
 
     @Override
