@@ -4,6 +4,7 @@ import com.redbeemedia.enigma.core.ads.IAdDetector;
 import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.marker.IMarkerPointsDetector;
 import com.redbeemedia.enigma.core.playrequest.IPlayRequest;
+import com.redbeemedia.enigma.core.virtualui.IVirtualControls;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,6 +14,7 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
     private final IPlayRequest playRequest;
     private final IEnigmaPlayerCallbacks playerConnection;
     private IAdDetector adDetector;
+    private IVirtualControls virtualControls;
 
     public MockPlaybackStartAction(IPlayRequest playRequest, IEnigmaPlayerCallbacks playerConnection) {
         this.playRequest = playRequest;
@@ -50,6 +52,7 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
     public void setAdDetector(IAdDetector adDetector) {
         this.adDetector = adDetector;
     }
+
 
     @Override
     public void setMarkerPointsDetector(IMarkerPointsDetector markerPointsDetector) {
