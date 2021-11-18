@@ -6,7 +6,12 @@ public class MockAudioTrack extends BasePlayerImplementationTrack {
     private String language;
     private final IAudioTrack audioTrack = new IAudioTrack() {
         @Override
-        public String getLanguageCode() {
+        public String getLabel() {
+            return language;
+        }
+
+        @Override
+        public String getCode() {
             return language;
         }
     };
