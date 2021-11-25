@@ -4,7 +4,7 @@ import com.redbeemedia.enigma.core.epg.IProgram;
 
 public class MockStreamPrograms implements IStreamPrograms {
     @Override
-    public IProgram getProgramAtOffset(long offset) {
+    public IProgram getProgram() {
         return null;
     }
 

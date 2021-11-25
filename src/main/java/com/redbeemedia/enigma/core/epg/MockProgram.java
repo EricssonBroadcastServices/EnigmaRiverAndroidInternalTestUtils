@@ -16,6 +16,9 @@ public class MockProgram implements IProgram {
         this("mock", start, end);
     }
 
+    public MockProgram(String name) {
+        this(name, 0l, 0l);
+    }
 
     public MockProgram(String name, long start, long end) {
         this(name, start, end, null);
