@@ -105,4 +105,19 @@ public class MockEnigmaPlayer implements IEnigmaPlayer {
     public IAnalyticsReporter getCurrentAnalyticsReporter() {
         return null;
     }
+
+    @Override
+    public void setStickyPlayer(boolean isStickyPlayer) {
+
+    }
+
+    @Override
+    public boolean isStickyPlayer() {
+        return false;
+    }
+
+    @Override
+    public boolean isCurrentStreamTypeAudioOnly() {
+        return false;
+    }
 }

@@ -1,5 +1,6 @@
 package com.redbeemedia.enigma.core.player;
 
+import com.google.android.exoplayer2.ui.PlayerNotificationManager;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
@@ -69,6 +70,11 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public void release() {
+    }
+
+    @Override
+    public void setupPlayerNotificationManager(PlayerNotificationManager manager) {
+
     }
 
     @Override
