@@ -55,4 +55,9 @@ public class MockDeviceInfo implements IDeviceInfo {
     public String getType() {
         return "MOCK";
     }
+
+    @Override
+    public String getAppType() {
+        return "android-app-type";
+    }
 }

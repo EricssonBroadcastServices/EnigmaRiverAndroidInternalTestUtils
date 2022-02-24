@@ -73,7 +73,7 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
         }
 
         @Override
-        public IPlaybackSessionInfo getPlaybackSessionInfo(String manifestUrl) {
+        public IPlaybackSessionInfo getPlaybackSessionInfo(String manifestUrl, String cdnProvider) {
             return playbackSessionInfo;
         }
 

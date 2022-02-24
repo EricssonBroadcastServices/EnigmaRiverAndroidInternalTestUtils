@@ -91,6 +91,11 @@ public class MockPlaybackSessionInfo implements IPlaybackSessionInfo {
         return playbackProperties;
     }
 
+    @Override
+    public String getCdnProvider() {
+        return null;
+    }
+
     public MockPlaybackSessionInfo setPlaybackProperties(IPlaybackProperties playbackProperties) {
         this.playbackProperties = playbackProperties;
         return this;
