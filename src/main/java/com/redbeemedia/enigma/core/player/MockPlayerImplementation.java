@@ -4,6 +4,7 @@ import com.google.android.exoplayer2.ui.PlayerNotificationManager;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
+import com.redbeemedia.enigma.core.video.IVideoTrack;
 
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
@@ -65,6 +66,11 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public void setAudioTrack(IAudioTrack track, IPlayerImplementationControlResultHandler resultHandler) {
+        resultHandler.onDone();
+    }
+
+    @Override
+    public void setVideoTrack(IVideoTrack track, IPlayerImplementationControlResultHandler resultHandler) {
         resultHandler.onDone();
     }
 

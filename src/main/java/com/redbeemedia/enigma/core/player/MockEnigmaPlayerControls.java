@@ -4,6 +4,7 @@ import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.controls.AbstractEnigmaPlayerControls;
 import com.redbeemedia.enigma.core.player.controls.IControlResultHandler;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
+import com.redbeemedia.enigma.core.video.IVideoTrack;
 
 public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     private EnigmaPlayerState state = EnigmaPlayerState.IDLE;
@@ -44,6 +45,11 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     @Override
     public void setAudioTrack(IAudioTrack track, IControlResultHandler resultHandler) {
         resultHandler.onDone();
+    }
+
+    @Override
+    public void setVideoTrack(IVideoTrack track, IControlResultHandler resultHandler) {
+
     }
 
     @Override
