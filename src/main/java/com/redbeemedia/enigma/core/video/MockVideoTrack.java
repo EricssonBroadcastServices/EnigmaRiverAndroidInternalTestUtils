@@ -60,4 +60,8 @@ public class MockVideoTrack implements IVideoTrack {
     }
 
 
+    @Override
+    public String getTrackId() {
+        return null;
+    }
 }

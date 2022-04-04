@@ -43,8 +43,18 @@ public class MockEnigmaPlayerControls extends AbstractEnigmaPlayerControls {
     }
 
     @Override
+    public void setSubtitleTrack(String trackId, IControlResultHandler resultHandler) {
+
+    }
+
+    @Override
     public void setAudioTrack(IAudioTrack track, IControlResultHandler resultHandler) {
         resultHandler.onDone();
+    }
+
+    @Override
+    public void setAudioTrack(String trackId, IControlResultHandler resultHandler) {
+
     }
 
     @Override

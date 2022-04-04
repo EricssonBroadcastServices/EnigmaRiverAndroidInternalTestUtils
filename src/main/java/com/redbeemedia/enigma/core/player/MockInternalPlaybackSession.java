@@ -135,11 +135,36 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setSelectedSubtitleTrack(String trackId) {
+
+    }
+
+    @Override
+    public ISubtitleTrack getSubtitleTrack(String trackId) {
+        return null;
+    }
+
+    @Override
     public void setSelectedAudioTrack(IAudioTrack track) {
     }
 
     @Override
+    public void setSelectedAudioTrack(String trackId) {
+
+    }
+
+    @Override
+    public IAudioTrack getAudioTrack(String trackId) {
+        return null;
+    }
+
+    @Override
     public void setSelectedVideoTrack(IVideoTrack track) {
+    }
+
+    @Override
+    public void setSelectedVideoTrack(String trackId) {
+
     }
 
     @Override

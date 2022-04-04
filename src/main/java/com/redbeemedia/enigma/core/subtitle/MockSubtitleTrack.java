@@ -6,6 +6,11 @@ public class MockSubtitleTrack extends BasePlayerImplementationTrack {
     private String language;
     private final ISubtitleTrack subtitleTrack = new ISubtitleTrack() {
         @Override
+        public String getTrackId() {
+            return null;
+        }
+
+        @Override
         public String getLabel() {
             return language;
         }
