@@ -1,9 +1,14 @@
 package com.redbeemedia.enigma.core.util.device;
 
 public class MockDeviceInfo implements IDeviceInfo {
+    private String deviceId = "JUnitDevice";
     @Override
     public String getDeviceId() {
-        return "JUnitDevice";
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     @Override
