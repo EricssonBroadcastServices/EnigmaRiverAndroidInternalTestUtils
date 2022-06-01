@@ -14,6 +14,11 @@ public class MockPlaybackProperties implements IPlaybackProperties {
     }
 
     @Override
+    public MaterialProfile getMaterialProfile() {
+        return null;
+    }
+
+    @Override
     public AdobePrimetime getAdobePrimetime() {
         return null;
     }
