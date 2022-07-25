@@ -194,6 +194,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
         return false;
     }
 
+    @Override
+    public String getPlaybackSessionId() {
+        return null;
+    }
+
 
     @Override
     public List<ISubtitleTrack> getSubtitleTracks() {

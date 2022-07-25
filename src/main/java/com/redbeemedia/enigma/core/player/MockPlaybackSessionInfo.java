@@ -41,6 +41,11 @@ public class MockPlaybackSessionInfo implements IPlaybackSessionInfo {
         return assetId;
     }
 
+    @Override
+    public String getPlaybackSessionId() {
+        return null;
+    }
+
     public MockPlaybackSessionInfo setAssetId(String assetId) {
         this.assetId = assetId;
         return this;
