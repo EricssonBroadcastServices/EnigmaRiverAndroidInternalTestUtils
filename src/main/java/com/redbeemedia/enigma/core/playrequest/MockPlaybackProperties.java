@@ -5,7 +5,7 @@ import com.redbeemedia.enigma.core.format.IMediaFormatSelector;
 public class MockPlaybackProperties implements IPlaybackProperties {
     @Override
     public PlayFrom getPlayFrom() {
-        return PlayFrom.PLAYER_DEFAULT;
+        return PlayFrom.BEGINNING;
     }
 
     @Override
