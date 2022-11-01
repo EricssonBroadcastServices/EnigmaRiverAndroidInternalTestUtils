@@ -55,6 +55,10 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setStickySession() {
+    }
+
+    @Override
     public void addInternalListener(IInternalPlaybackSessionListener listener) {
     }
 
