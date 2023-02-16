@@ -101,6 +101,11 @@ public class MockPlaybackSessionInfo implements IPlaybackSessionInfo {
         return null;
     }
 
+    @Override
+    public Integer getDuration() {
+        return null;
+    }
+
     public MockPlaybackSessionInfo setPlaybackProperties(IPlaybackProperties playbackProperties) {
         this.playbackProperties = playbackProperties;
         return this;
