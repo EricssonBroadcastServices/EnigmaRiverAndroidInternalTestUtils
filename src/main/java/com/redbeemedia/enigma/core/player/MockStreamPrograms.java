@@ -9,6 +9,11 @@ public class MockStreamPrograms implements IStreamPrograms {
     }
 
     @Override
+    public IProgram getProgramForEntitlementCheck() {
+        return null;
+    }
+
+    @Override
     public Long getNeighbouringSectionStartOffset(long fromOffset, boolean searchBackwards) {
         return null;
     }
