@@ -12,8 +12,13 @@ public class MockDeviceInfo implements IDeviceInfo {
     }
 
     @Override
-    public String getModel() {
+    public String getDeviceModelLogin() {
         return "testModel";
+    }
+
+    @Override
+    public String getDeviceModelPlay() {
+        return null;
     }
 
     @Override
@@ -57,12 +62,27 @@ public class MockDeviceInfo implements IDeviceInfo {
     }
 
     @Override
-    public String getType() {
+    public String getDeviceTypeLogin() {
         return "MOCK";
+    }
+
+    @Override
+    public String getDeviceTypePlay() {
+        return "Mock";
     }
 
     @Override
     public String getAppType() {
         return "android-app-type";
+    }
+
+    @Override
+    public String getGoogleAdId() {
+        return "getGoogleAdId";
+    }
+
+    @Override
+    public boolean isLimitedAdTracking() {
+        return false;
     }
 }
