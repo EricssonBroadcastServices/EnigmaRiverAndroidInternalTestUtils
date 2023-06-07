@@ -11,6 +11,9 @@ import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
 import com.redbeemedia.enigma.core.video.IVideoTrack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MockPlayerImplementation implements IPlayerImplementation, IPlayerImplementationControls, IPlayerImplementationInternals {
     private IPlayerImplementationListener playerImplementationListener;
     public ITimelinePositionFactory timelinePositionFactory;
@@ -143,5 +146,10 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
 
     @Override
     public void setMaxVideoTrackDimensions(int width, int height, IPlayerImplementationControlResultHandler controlResultHandler) {
+    }
+
+    @Override
+    public Map<String, String> getDrmKeyStatusMap() {
+        return new HashMap<>();
     }
 }

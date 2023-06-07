@@ -63,6 +63,11 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setPlayerImplementationControls(IPlayerImplementationControls playerImplementationControls) {
+
+    }
+
+    @Override
     public JsonStreamInfo getStreamInfo() {
         return streamInfo;
     }
