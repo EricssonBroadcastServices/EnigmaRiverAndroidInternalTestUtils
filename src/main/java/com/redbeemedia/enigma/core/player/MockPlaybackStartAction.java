@@ -3,6 +3,7 @@ package com.redbeemedia.enigma.core.player;
 import com.redbeemedia.enigma.core.ads.IAdDetector;
 import com.redbeemedia.enigma.core.error.EnigmaError;
 import com.redbeemedia.enigma.core.marker.IMarkerPointsDetector;
+import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.playrequest.IPlayRequest;
 import com.redbeemedia.enigma.core.virtualui.IVirtualControls;
 
@@ -61,6 +62,16 @@ public class MockPlaybackStartAction implements IPlaybackStartAction {
 
     public static class MockEnigmaPlayerCallbacks implements IEnigmaPlayerCallbacks {
         private IPlaybackSessionInfo playbackSessionInfo = new MockPlaybackSessionInfo();
+
+        @Override
+        public EnigmaPlayerState getState() {
+            return null;
+        }
+
+        @Override
+        public ITimelinePosition getTimelineCurrentPosition() {
+            return null;
+        }
 
         @Override
         public void setStateIfCurrentStartAction(IPlaybackStartAction action, EnigmaPlayerState state) {

@@ -5,9 +5,10 @@ import android.os.Parcel;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.UUID;
 
 @SuppressLint("ParcelCreator")
-public class MockPlayable implements IPlayable {
+public class MockPlayable implements IAssetPlayable {
     private IType type;
 
     public MockPlayable() {
@@ -51,6 +52,11 @@ public class MockPlayable implements IPlayable {
     public void writeToParcel(Parcel dest, int flags) {
     }
 
+    @Override
+    public String getAssetId() {
+        return "mock-assetid";
+    }
+
     private interface IType {
         void useWith(IPlayableHandler playableHandler);
     }
@@ -90,7 +96,7 @@ public class MockPlayable implements IPlayable {
 
         @Override
         public void useWith(IPlayableHandler playableHandler) {
-            playableHandler.startUsingDownloadData(downloadData);
+            playableHandler.startUsingDownloadData(downloadData, String.valueOf(UUID.randomUUID()), "", "", -1);
         }
     }
 }

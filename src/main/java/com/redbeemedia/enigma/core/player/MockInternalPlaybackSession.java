@@ -68,6 +68,16 @@ public class MockInternalPlaybackSession implements IInternalPlaybackSession {
     }
 
     @Override
+    public void setSessionResumed(boolean sessionResumed) {
+
+    }
+
+    @Override
+    public boolean isSessionResumed() {
+        return false;
+    }
+
+    @Override
     public JsonStreamInfo getStreamInfo() {
         return streamInfo;
     }

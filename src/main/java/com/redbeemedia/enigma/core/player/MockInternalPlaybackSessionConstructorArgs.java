@@ -20,7 +20,7 @@ public class MockInternalPlaybackSessionConstructorArgs {
     private IAdMetadata adsInfo;
     private IAdDetector adDetector;
     public InternalPlaybackSession.ConstructorArgs create() {
-        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter, videoSprites, adsInfo, adDetector);
+        return new InternalPlaybackSession.ConstructorArgs(streamInfo, streamPrograms,playbackSessionInfo, contractRestrictions, drmInfo, analyticsReporter, videoSprites, adsInfo, adDetector,false,null);
     }
 
     public JsonStreamInfo getStreamInfo() {
