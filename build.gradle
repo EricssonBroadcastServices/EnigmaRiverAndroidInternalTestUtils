@@ -30,8 +30,5 @@ android {
 dependencies {
     implementation project(':core')
     implementation 'junit:junit:4.12'
-    implementation ('com.github.EricssonBroadcastServices:ExoPlayer:2.17.2') {
-        exclude module: 'exoplayer-robolectricutils'
-    }
     //implementation 'org.json:json:20080701'
 }
