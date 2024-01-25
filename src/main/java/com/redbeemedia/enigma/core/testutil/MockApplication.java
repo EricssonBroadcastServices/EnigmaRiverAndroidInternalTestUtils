@@ -458,22 +458,22 @@ public class MockApplication extends Application {
 
             @Override
             public int checkPermission(@NonNull String s, int i, int i1) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkCallingPermission(@NonNull String s) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkCallingOrSelfPermission(@NonNull String s) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkSelfPermission(@NonNull String s) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
@@ -508,22 +508,22 @@ public class MockApplication extends Application {
 
             @Override
             public int checkUriPermission(Uri uri, int i, int i1, int i2) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkCallingUriPermission(Uri uri, int i) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkCallingOrSelfUriPermission(Uri uri, int i) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
             public int checkUriPermission(@Nullable Uri uri, @Nullable String s, @Nullable String s1, int i, int i1, int i2) {
-                return 0;
+                return PackageManager.PERMISSION_GRANTED;
             }
 
             @Override
