@@ -72,11 +72,6 @@ public class MockDeviceInfo implements IDeviceInfo {
     }
 
     @Override
-    public String getAppType() {
-        return "android-app-type";
-    }
-
-    @Override
     public String getGoogleAdId() {
         return "getGoogleAdId";
     }

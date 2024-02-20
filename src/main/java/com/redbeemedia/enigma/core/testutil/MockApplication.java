@@ -104,7 +104,7 @@ public class MockApplication extends Application {
 
             @Override
             public ApplicationInfo getApplicationInfo() {
-                return null;
+                return new ApplicationInfo();
             }
 
             @Override
