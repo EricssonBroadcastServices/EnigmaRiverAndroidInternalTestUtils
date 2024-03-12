@@ -19,6 +19,11 @@ public class MockSubtitleTrack extends BasePlayerImplementationTrack {
         public String getCode() {
             return language;
         }
+
+        @Override
+        public boolean isForcedSubtitle() {
+            return false;
+        }
     };
 
     public MockSubtitleTrack(String language) {
