@@ -1,11 +1,5 @@
 package com.redbeemedia.enigma.core.player;
 
-import android.content.Context;
-import android.support.v4.media.session.MediaSessionCompat;
-
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.ui.PlayerNotificationManager;
-import com.google.android.exoplayer2.ui.SubtitleView;
 import com.redbeemedia.enigma.core.audio.IAudioTrack;
 import com.redbeemedia.enigma.core.player.timeline.ITimelinePosition;
 import com.redbeemedia.enigma.core.subtitle.ISubtitleTrack;
@@ -87,28 +81,8 @@ public class MockPlayerImplementation implements IPlayerImplementation, IPlayerI
     }
 
     @Override
-    public void setupPlayerNotificationManager(PlayerNotificationManager manager) {
-
-    }
-
-    @Override
-    public MediaSessionCompat createMediaSession(Context applicationContext) {
-        return null;
-    }
-
-    @Override
     public void updateTimeBar(long millis) {
 
-    }
-
-    @Override
-    public Player getInternalPlayer() {
-        return null;
-    }
-
-    @Override
-    public SubtitleView getPlayerSubtitleView() {
-        return null;
     }
 
     @Override

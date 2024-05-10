@@ -20,7 +20,6 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
