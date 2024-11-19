@@ -80,4 +80,9 @@ public class MockDeviceInfo implements IDeviceInfo {
     public boolean isLimitedAdTracking() {
         return false;
     }
+
+    @Override
+    public boolean isTV() {
+        return false;
+    }
 }
