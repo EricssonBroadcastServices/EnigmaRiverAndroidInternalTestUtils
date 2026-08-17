@@ -10,6 +10,7 @@ import com.redbeemedia.enigma.core.util.OpenContainerUtil;
 public class MockNetworkMonitor implements INetworkMonitor {
     private final ListenerCollector listeners = new ListenerCollector();
     private final OpenContainer<Boolean> internetAccess = new OpenContainer<>(true);
+    private final OpenContainer<String> connectionType = new OpenContainer<>(INetworkMonitor.CONNECTION_TYPE_UNKNOWN);
 
     @Override
     public boolean hasInternetAccess() {
@@ -19,6 +20,18 @@ public class MockNetworkMonitor implements INetworkMonitor {
     public MockNetworkMonitor setInternetAccess(boolean value) {
         OpenContainerUtil.setValueSynchronized(internetAccess, value, (oldValue, newValue) -> {
             listeners.onInternetAccessChanged(newValue);
+        });
+        return this;
+    }
+
+    @Override
+    public String getConnectionType() {
+        return OpenContainerUtil.getValueSynchronized(connectionType);
+    }
+
+    public MockNetworkMonitor setConnectionType(String value) {
+        OpenContainerUtil.setValueSynchronized(connectionType, value, (oldValue, newValue) -> {
+            listeners.onConnectionTypeChanged(newValue);
         });
         return this;
     }
@@ -38,7 +51,8 @@ public class MockNetworkMonitor implements INetworkMonitor {
         return listeners.removeListener(listener);
     }
 
-    private static class ListenerCollector extends Collector<INetworkMonitorListener> implements INetworkMonitorListener {
+    private static class ListenerCollector extends Collector<INetworkMonitorListener>
+            implements INetworkMonitorListener {
         public ListenerCollector() {
             super(INetworkMonitorListener.class);
         }
@@ -50,6 +64,11 @@ public class MockNetworkMonitor implements INetworkMonitor {
         @Override
         public void onInternetAccessChanged(boolean internetAccess) {
             forEach(listener -> listener.onInternetAccessChanged(internetAccess));
+        }
+
+        @Override
+        public void onConnectionTypeChanged(String connectionType) {
+            forEach(listener -> listener.onConnectionTypeChanged(connectionType));
         }
     }
 }

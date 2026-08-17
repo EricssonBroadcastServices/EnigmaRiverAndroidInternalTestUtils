@@ -14,6 +14,11 @@ public class MockAnalyticsReporter implements IAnalyticsReporter {
     }
 
     @Override
+    public void deviceInfo(String cdnProvider, String technology) {
+
+    }
+
+    @Override
     public void playbackCreated(String assetId) {
 
     }
@@ -125,6 +130,91 @@ public class MockAnalyticsReporter implements IAnalyticsReporter {
 
     @Override
     public void playbackAdFailed(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackAdBreakFinished(long offsetTime, String adBreakId) {
+
+    }
+
+    @Override
+    public void playbackAdBreakStarted(long offsetTime, String adBreakId) {
+
+    }
+
+    @Override
+    public void playbackAdSkipped(long offsetTime, String adId) {
+
+    }
+
+    @Override
+    public void playbackAudioChanged(long offsetTime, String audioTrackId) {
+
+    }
+
+    @Override
+    public void playbackAudioPlaybackQualityChanged(long offsetTime, Integer bitrate) {
+
+    }
+
+    @Override
+    public void playbackCastStart(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackDVRWindowExceeded(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackDurationChanged(long offsetTime, Double duration) {
+
+    }
+
+    @Override
+    public void playbackMuted(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackPlay(long offsetTime, Double time) {
+
+    }
+
+    @Override
+    public void playbackSeeked(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackSourceLoaded(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackTimeChanged(long offsetTime, Double time) {
+
+    }
+
+    @Override
+    public void playbackTimeShifted(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackUnmuted(long offsetTime) {
+
+    }
+
+    @Override
+    public void playbackWarning(long offsetTime, Integer code, String message) {
+
+    }
+
+    @Override
+    public void playbackConnectionTypeChanged(long offsetTime, String connectionType) {
 
     }
 }
